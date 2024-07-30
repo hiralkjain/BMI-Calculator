@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BMI Calculator</title>
+    <style>
+        body{
+            background-color: gray;
+        }
+    </style>
+</head>
+<body>
+    <h1>BMI CALCULATOR</h1>
+    <form>
+    <p>Height in cm:</p><input type="text" id="height">
+    <p>Weight in kg:</p><input type="text" id="weight">
+    <br>
+    <br>
+    <div id="calculate"></div>
+    <br><br><br>
+    <button>Calculate</button>
+    
+</form>
+    <script>
+        const form = document.querySelector('form');
+        form.addEventListener('submit',function(e){
+        e.preventDefault();
+        const h = parseInt(document.querySelector('#height').value);
+        const w = parseInt(document.querySelector('#weight').value);
+        const result = document.querySelector('#calculate')
+        const bmi = (w/((h*h)/10000)).toFixed(2);
+        result.innerHTML =  `<span>${bmi}</span>`;
+        });
+        
+    </script>
+</body>
+</html>
